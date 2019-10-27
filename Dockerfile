@@ -18,6 +18,7 @@ ENV USER docker
 RUN useradd -m ${USER}
 RUN echo "${USER}:${USER}" | chpasswd
 RUN adduser ${USER} sudo	
+RUN echo "${USER} ALL=NOPASSWD:ALL" >> /etc/sudoers
 USER ${USER}
 
 # make user
