@@ -1,7 +1,6 @@
 
 FROM ubuntu:18.04
 
-#ENV DEBCONF_NOWARNINGS yes
 RUN apt-get update
 RUN apt-get upgrade -y --no-install-recommends \
 	sudo \
