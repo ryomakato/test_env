@@ -10,21 +10,9 @@ RUN apt-get upgrade -y --no-install-recommends \
 	wget
 RUN sudo apt-get autoremove && sudo apt-get clean	
 
-# install what you want
-#RUN apt-get update
-#RUN apt-get upgrade -y --no-install-recommends \
-
+# make user
 ENV USER docker
 RUN useradd -m ${USER}
 RUN echo "${USER}:${USER}" | chpasswd
 RUN adduser ${USER} sudo	
 RUN echo "${USER} ALL=NOPASSWD:ALL" >> /etc/sudoers
-USER ${USER}
-
-# make user
-#ENV USER docker
-#ARG UID=9001
-#ARG GID=9001
-#RUN sudo useradd -u $UID -o -m ${USER}
-#RUN sudo groupmod -g $GID -o ${USER}
-#USER ${USER}
